@@ -1,0 +1,55 @@
+﻿<Window x:Class="MapTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MapTool"
+        mc:Ignorable="d"
+        Title="MapTool" Height="604.5" Width="1217">
+    <Grid HorizontalAlignment="Left" Width="1217">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Height="339">
+
+            <GroupBox Header="X 길이" Height="auto" Width="233" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Slider x:Name="xSlider" Width="170" ValueChanged="xSlider_ValueChanged" IsSnapToTickEnabled="True" Minimum="1" Maximum="50"/>
+                    <TextBox x:Name="xLength" TextChanged="xLength_TextChanged" PreviewTextInput="TextInputIsDigit" Text="2"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Y 길이" Height="auto" Width="233" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Slider x:Name="ySlider" Width="170" ValueChanged="ySlider_ValueChanged" IsSnapToTickEnabled="True" Minimum="1" Maximum="50"/>
+                    <TextBox x:Name="yLength" TextChanged="yLength_TextChanged" PreviewTextInput="TextInputIsDigit">1</TextBox>
+                </StackPanel>
+            </GroupBox>
+
+            <ComboBox x:Name="imageComboBox" SelectedIndex="0">
+                <ComboBoxItem Content="block/bog_green0.png"/>
+                <ComboBoxItem Content="block/block.png"/>
+                <ComboBoxItem Content="block/cobble_blood1.png"/>
+
+                <ComboBoxItem Content="block/ice0.png"/>
+            </ComboBox>
+
+            <Button Content="Create" Margin="40,10,40,10" Click="OnClick_Create"/>
+            <Button Content="Save" Margin="40,10,40,10" Click="OnClick_Save"/>
+            <Button Content="Load" Margin="40,10,40,10" Click="OnClick_Load"/>
+
+        </StackPanel>
+
+        <ScrollViewer Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="547" Margin="10,10,0,0" VerticalAlignment="Top" Width="933">
+
+            <StackPanel x:Name="parPanel" HorizontalAlignment="Left"/>
+
+        </ScrollViewer>
+
+    </Grid>
+</Window>
+
+    
